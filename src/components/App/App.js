@@ -5,7 +5,7 @@ import { Dashboard, Header, Main } from '../'
 
 const StyledHeader = styled(props => <Header {...props} />)`
   height: 100vh;
-  background-color: $primary;
+  background-color: white;
 `
 
 const App = () => (
