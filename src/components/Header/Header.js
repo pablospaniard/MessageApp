@@ -16,6 +16,13 @@ const StyledTopUP = styled.div`
   justify-content: space-around;
 `
 
+const StyledText = styled.p`
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 0.6rem;
+  color: ${props => props.theme.greyText};
+`
+
 const StyledTitle = styled.div`
   font-size: 1.5rem;
   color: ${props => props.theme.greyText};
@@ -30,10 +37,13 @@ const Header = props => (
       <Button text={'sent'} disabled />
     </div>
     <StyledTopUP className="col-sm-2">
-      <p>balance</p>
+      <div>
+        <StyledText>balance</StyledText>
+        <p style={{ color: '#ff756c' }}>€ 5.00</p>
+      </div>
       <Button text={'top up'} danger />
     </StyledTopUP>
-    <div className="col-sm-2">Account</div>
+    <div className="col-sm-2">Sign In</div>
   </StyledOutter>
 )
 

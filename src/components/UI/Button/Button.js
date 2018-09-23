@@ -28,11 +28,13 @@ const StyledButton = styled.button`
     background-color: ${props =>
       (props.primary && props.theme.primaryHoverBtn) ||
       (props.danger && props.theme.secondaryHoverBtn) ||
+      (props.action && props.theme.actionHoverBtn) ||
       (props.disabled && props.theme.disabledBtn)};
     color: ${props =>
       (props.primary && props.theme.secondaryText) ||
       (props.danger && props.theme.dangerBtn) ||
       (props.disabled && props.theme.primaryTextBtn)};
+      cursor: pointer;
   }
   &:focus {
     outline: none;
