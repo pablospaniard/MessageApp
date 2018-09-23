@@ -29,6 +29,9 @@
       "pre-push": "yarn test:ci"
     }
   },
+  "lint-staged": {
+    "**/*.+(js|jsx)": ["prettier --write", "eslint --fix", "git add"]
+  },
   "devDependencies": {
     "eslint": "^5.6.0",
     "eslint-config-prettier": "^3.1.0",

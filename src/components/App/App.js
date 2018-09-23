@@ -1,5 +1,12 @@
 import React from 'react'
-import { Dashboard, Header, Main } from './'
+import styled from 'styled-components'
+
+import { Dashboard, Header, Main } from '../'
+
+const StyledHeader = styled(props => <Header {...props} />)`
+  height: 100vh;
+  background-color: $primary;
+`
 
 const App = () => (
   <div className="container-fluid">
@@ -8,7 +15,7 @@ const App = () => (
         <Dashboard />
       </div>
       <div className="col-sm-10">
-        <Header />
+        <StyledHeader />
         <Main />
       </div>
     </div>
