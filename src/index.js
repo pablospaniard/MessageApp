@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
 import thunk from 'redux-thunk'
 import { ThemeProvider } from 'styled-components'
+import { BrowserRouter } from 'react-router-dom'
 
 import { App } from './components'
 import registerServiceWorker from './registerServiceWorker'
@@ -23,9 +24,11 @@ const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <BrowserRouter>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </BrowserRouter>
   </ThemeProvider>,
   document.getElementById('root')
 )

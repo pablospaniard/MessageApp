@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Button } from '../'
+import { Button, NavItem } from '../UI'
 
 const StyledOutter = styled.div`
   margin: 20px;
@@ -32,9 +32,15 @@ const Header = props => (
   <StyledOutter className="row">
     <StyledTitle className="col-sm-2">Messages</StyledTitle>
     <div className="col-sm-6">
-      <Button text={'all messages'} primary />
-      <Button text={'received'} primary />
-      <Button text={'sent'} disabled />
+      <NavItem exact to={'/'}>
+        <Button text={'all messages'} primary />
+      </NavItem>
+      <NavItem to={'/received'}>
+        <Button text={'received'} primary />
+      </NavItem>
+      <NavItem to={'/sent'}>
+        <Button text={'sent'} primary />
+      </NavItem>
     </div>
     <StyledTopUP className="col-sm-2">
       <div>

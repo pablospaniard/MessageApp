@@ -13,7 +13,7 @@ const StyledButton = styled.button`
   background-color: ${props =>
     (props.primary && props.theme.primaryBtn) ||
     (props.danger && props.theme.dangerBtn) ||
-    (props.action && props.theme.actionBtn) ||
+    (props.actionBtn && props.theme.actionBtn) ||
     (props.disabled && props.theme.disabledBtn)};
   border: none;
   border-radius: 4px;
@@ -21,14 +21,15 @@ const StyledButton = styled.button`
   text-transform: capitalize;
   color: ${props =>
     (props.primary && props.theme.primaryTextBtn) ||
-    ((props.danger || props.action) && props.theme.secondaryTextBtn) ||
+    ((props.danger || props.actionBtn) && props.theme.secondaryTextBtn) ||
     (props.disabled && props.theme.primaryTextBtn)};
 
-  &:hover {
+  &:hover,
+  &:after {
     background-color: ${props =>
       (props.primary && props.theme.primaryHoverBtn) ||
       (props.danger && props.theme.secondaryHoverBtn) ||
-      (props.action && props.theme.actionHoverBtn) ||
+      (props.actionBtn && props.theme.actionHoverBtn) ||
       (props.disabled && props.theme.disabledBtn)};
     color: ${props =>
       (props.primary && props.theme.secondaryText) ||
