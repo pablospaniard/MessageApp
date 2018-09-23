@@ -3,23 +3,24 @@ import styled from 'styled-components'
 
 import { Dashboard, Header, Main } from '../'
 
-const StyledHeader = styled(props => <Header {...props} />)`
-  height: 100vh;
-  background-color: black;
+const StyledDiv = styled.div`
+  background-color: ${props => props.theme.mainBgd};
+  font-family: ${props => props.theme.font};
+  letter-spacing: 1px;
 `
 
 const App = () => (
-  <div className="container-fluid">
+  <StyledDiv className="container-fluid">
     <div className="row">
-      <div className="col-sm-2">
+      <div className="col-sm-2 p-0">
         <Dashboard />
       </div>
       <div className="col-sm-10">
-        <StyledHeader />
+        <Header />
         <Main />
       </div>
     </div>
-  </div>
+  </StyledDiv>
 )
 
 export default App
