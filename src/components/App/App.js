@@ -4,9 +4,11 @@ import styled from 'styled-components'
 import { Dashboard, Header, Main } from '../'
 
 const StyledDiv = styled.div`
-  background-color: ${props => props.theme.mainBgd};
+  background-color: ${props => props.theme.bodyBgd};
   font-family: ${props => props.theme.font};
   letter-spacing: 1px;
+  font-size: 16px;
+  min-height: 100vh;
 `
 
 const App = () => (
