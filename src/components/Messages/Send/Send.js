@@ -22,6 +22,12 @@ const StyledHr = styled.hr`
   margin: 0;
 `
 
+const StyledSpan = styled.span`
+  font-size: 0.75rem;
+  margin: 0;
+  margin-left: 50px;
+`
+
 class Send extends Component {
   state = {
     charsLeft: 1000,
@@ -44,8 +50,8 @@ class Send extends Component {
 
   onSendButtonHandler = (e, originator, recipient, message) => {
     e.preventDefault()
-    //this.props.sendMessage(originator, recipient, message)
-    this.props.history.push('/')
+    this.props.sendMessage(originator, recipient, message)
+    alert('Pop up')
   }
 
   render() {
@@ -54,6 +60,7 @@ class Send extends Component {
       <Fragment>
         <div className="row">
           <StyledText className="col-sm-12">Send SMS</StyledText>
+          <StyledSpan>*All fields must be filled</StyledSpan>
         </div>
         <StyledHr />
         <Form
@@ -67,7 +74,7 @@ class Send extends Component {
                   type="text"
                   name="recipient"
                   id="phoneNumber"
-                  placeholder="ex: +101234567"
+                  placeholder="ex: +0123456789"
                   value={recipient}
                   onChange={this.handleChange}
                 />
@@ -126,7 +133,8 @@ class Send extends Component {
 }
 
 Send.propTypes = {
-  sendMessage: PropTypes.func.isRequired
+  sendMessage: PropTypes.func.isRequired,
+  history: PropTypes.object
 }
 
 export default Send

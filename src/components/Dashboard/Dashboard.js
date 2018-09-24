@@ -10,10 +10,6 @@ const StyledOutter = styled.div`
   flex-flow: column nowrap;
   justify-content: space-between;
 `
-const StyledInner = styled.div`
-  background-color: ${props => props.theme.primaryBgd};
-  padding: 20px 0;
-`
 
 const StyledMenu = styled.div`
   background-color: ${props => props.theme.primaryBgd};
@@ -27,14 +23,6 @@ const StyledImg = styled.div`
   height: 40px;
   margin: 20px;
   width: auto;
-`
-
-const StyledLi = styled.li`
-  list-style-type: none;
-`
-
-const StyledText = styled.span`
-  margin-left: 5px;
 `
 
 const Dashboard = () => {

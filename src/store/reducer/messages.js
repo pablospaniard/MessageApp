@@ -2,7 +2,7 @@ import * as constants from '../constants'
 
 const initialStore = {
   err: null,
-  loading: null,
+  loading: true,
   messages: []
 }
 
@@ -13,10 +13,11 @@ const messageReducer = (state = initialStore, action) => {
     case constants.MESSAGES_FETCH_SUCCESS:
       return {
         ...state,
+        messages: action.payload,
         loading: false
       }
     case constants.MESSAGES_FETCH_FAIL:
-      return { ...state, loading: false }
+      return { ...state, loading: false, err: action.payload }
     default:
       return state
   }

@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
-import { Send } from '../../components/Messages'
 import { withRouter } from 'react-router-dom'
+
+import { Send } from '../../components/Messages'
 import * as actions from '../../store/actions'
 
 const mapStateToProps = state => {

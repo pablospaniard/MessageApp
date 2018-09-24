@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 import key from '../config/keys'
 
 import * as constants from './constants'
@@ -24,6 +26,18 @@ const fetchMessagesFail = err => {
 
 export const fetchMessages = () => dispatch => {
   dispatch(fetchMessagesStart())
+  axios({
+    method: 'get',
+    url: 'https://rest.messagebird.com/messages',
+    headers: {
+      Authorization: `AccessKey ${accessKey}`,
+      Accept: 'application/json'
+    }
+  })
+    .then(res => {
+      return dispatch(fetchMessagesSuccess(res.data))
+    })
+    .catch(err => dispatch(fetchMessagesFail(err)))
 }
 
 const fetchBalanceStart = () => ({
@@ -82,6 +96,5 @@ export const sendMessage = (originator, recipient, message) => dispatch => {
       return
     }
     dispatch(sendMessageSuccess(response))
-    console.log(response)
   })
 }

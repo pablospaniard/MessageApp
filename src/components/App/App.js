@@ -19,8 +19,19 @@ class App extends Component {
     this.props.fetchBalance()
   }
 
+  shouldComponentUpdate = (nextProps, nextState) => {
+    if (
+      nextProps.location.pathname !== this.props.location.pathname ||
+      nextProps.messages.count !== this.props.messages.count
+    ) {
+      this.props.fetchMessages()
+      return true
+    }
+    return false
+  }
+
   render() {
-    const { balance } = this.props
+    const { balance, messages, loading } = this.props
     return (
       <StyledDiv className="container-fluid">
         <div className="row">
@@ -29,7 +40,7 @@ class App extends Component {
           </div>
           <div className="col-sm-11">
             <Header balance={balance} />
-            <Main />
+            <Main messages={messages} loading={loading} />
           </div>
         </div>
       </StyledDiv>
@@ -40,7 +51,10 @@ class App extends Component {
 App.propTypes = {
   fetchBalance: PropTypes.func.isRequired,
   fetchMessages: PropTypes.func.isRequired,
-  balance: PropTypes.number
+  balance: PropTypes.number,
+  messages: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  location: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  loading: PropTypes.bool
 }
 
 export default App

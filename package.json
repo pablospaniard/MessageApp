@@ -4,9 +4,11 @@
   "author": "Pavel Ivanov",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
     "eslint-plugin-json": "^1.2.1",
     "jest-cli": "^23.6.0",
     "messagebird": "^2.1.4",
+    "moment": "^2.22.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",
