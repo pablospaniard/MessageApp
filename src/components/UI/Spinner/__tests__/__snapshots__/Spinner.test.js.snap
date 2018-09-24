@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App should render properly should match snapshot: Spinner_snapshot_1 1`] = `
+exports[`Spinner_snapshot_1 1`] = `
 <div
-  class="Spinner"
+  class="sc-bdVaJa qNlxh"
   data-testid="spinner"
 >
   <div />

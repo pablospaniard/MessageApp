@@ -6,7 +6,6 @@
   "dependencies": {
     "axios": "^0.18.0",
     "eslint-plugin-json": "^1.2.1",
-    "jest-cli": "^23.6.0",
     "messagebird": "^2.1.4",
     "moment": "^2.22.2",
     "react": "^16.5.2",
@@ -23,7 +22,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "test:ci": "CI=true npm run test -- --runInBand",
+    "test:ci": "CI=true yarn test --runInBand",
     "eject": "react-scripts eject",
     "precommit": "lint-staged",
     "prepush": "yarn test:ci"
