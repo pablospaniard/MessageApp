@@ -9,6 +9,7 @@ const StyledDiv = styled.div`
   letter-spacing: 1px;
   font-size: 16px;
   min-height: 100vh;
+  color: ${props => props.theme.primaryTextBtn};
 `
 
 const App = () => (

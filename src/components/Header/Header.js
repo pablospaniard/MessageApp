@@ -41,6 +41,9 @@ const Header = props => (
       <NavItem to={'/sent'}>
         <Button text={'sent'} primary />
       </NavItem>
+      <NavItem to={'/send-sms'}>
+        <Button text={'send SMS'} primary />
+      </NavItem>
     </div>
     <StyledTopUP className="col-sm-2">
       <div>

@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 
-import { All, Received, Sent } from '../Messages'
+import { All, Received, Sent, Send } from '../Messages'
 
 const StyledOutter = styled.div`
   background-color: ${props => props.theme.mainBgd};
@@ -11,16 +11,16 @@ const StyledOutter = styled.div`
   border: 1px solid ${props => props.theme.borderMain};
 `
 
-const Main = props => {
-  return (
-    <StyledOutter>
-      <Switch>
-        <Route exact to="/" component={All} />
-        <Route to="/received" component={Received} />
-        <Route to="/sent" component={Sent} />
-      </Switch>
-    </StyledOutter>
-  )
-}
+const Main = () => (
+  <StyledOutter>
+    <Switch>
+      <Route exact path="/" component={All} />
+      <Route path="/received" component={Received} />
+      <Route path="/sent" component={Sent} />
+      <Route path="/send-sms" component={Send} />
+      <Redirect from="*" to="/" />
+    </Switch>
+  </StyledOutter>
+)
 
 export default Main
