@@ -9,7 +9,12 @@ import { BrowserRouter } from 'react-router-dom'
 
 import AppContainer from './containers/AppContainer/AppContainer'
 import registerServiceWorker from './registerServiceWorker'
-import { messageReducer, balanceReducer, createReducer } from './store/reducer'
+import {
+  messageReducer,
+  balanceReducer,
+  createReducer,
+  receiveReducer
+} from './store/reducer'
 
 const theme = require('sass-extract-loader?{"plugins": ["sass-extract-js"]}!./scss/vars.scss')
 
@@ -21,7 +26,8 @@ const composeEnhancers =
 const rootReducer = combineReducers({
   messages: messageReducer,
   balance: balanceReducer,
-  message: createReducer
+  message: createReducer,
+  receivedMessage: receiveReducer
 })
 
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
