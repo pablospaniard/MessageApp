@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { Form, FormGroup, Label, Input } from 'reactstrap'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 import { Button } from '../../UI'
 
@@ -23,34 +24,63 @@ const StyledHr = styled.hr`
 
 class Send extends Component {
   state = {
-    charsLeft: 1000
+    charsLeft: 1000,
+    originator: '',
+    recipient: '',
+    message: ''
   }
 
   handleChangeText = e => {
     const input = e.target.value
-    console.log(input)
     this.setState({
-      charsLeft: 1000 - input.length
+      charsLeft: 1000 - input.length,
+      message: input
     })
   }
 
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value })
+  }
+
+  onSendButtonHandler = (e, originator, recipient, message) => {
+    e.preventDefault()
+    //this.props.sendMessage(originator, recipient, message)
+    this.props.history.push('/')
+  }
+
   render() {
+    const { originator, recipient, message } = this.state
     return (
       <Fragment>
         <div className="row">
           <StyledText className="col-sm-12">Send SMS</StyledText>
         </div>
         <StyledHr />
-        <Form>
+        <Form
+          onSubmit={() => this.onSubmitHandler(originator, recipient, message)}
+        >
           <div className="row" style={{ margin: '20px' }}>
             <div className="col-sm-4">
               <FormGroup>
                 <Label for="phoneNumber">Phone:</Label>
                 <Input
                   type="text"
-                  name="phone"
+                  name="recipient"
                   id="phoneNumber"
                   placeholder="ex: +101234567"
+                  value={recipient}
+                  onChange={this.handleChange}
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label for="originator">Originator:</Label>
+                <Input
+                  type="text"
+                  name="originator"
+                  id="originator"
+                  placeholder="ex: MessageBird"
+                  value={originator}
+                  onChange={this.handleChange}
                 />
               </FormGroup>
             </div>
@@ -59,11 +89,12 @@ class Send extends Component {
                 <Label for="message">Message:</Label>
                 <Input
                   type="textarea"
-                  name="text"
+                  name="message"
                   id="message"
                   placeholder="Type your message here:"
                   maxLength="1000"
                   style={{ minHeight: '200px' }}
+                  value={message}
                   onChange={this.handleChangeText}
                 />
                 <span style={{ float: 'right' }}>
@@ -76,15 +107,26 @@ class Send extends Component {
           <StyledHr />
           <div className="row">
             <StyledButtonRow className="col-sm-12">
-              <Button text="send" actionBtn>
-                Submit
-              </Button>
+              <Button
+                text="send"
+                actionBtn
+                disabled={
+                  originator === '' || recipient === '' || message === ''
+                }
+                onClick={e =>
+                  this.onSendButtonHandler(e, originator, recipient, message)
+                }
+              />
             </StyledButtonRow>
           </div>
         </Form>
       </Fragment>
     )
   }
+}
+
+Send.propTypes = {
+  sendMessage: PropTypes.func.isRequired
 }
 
 export default Send

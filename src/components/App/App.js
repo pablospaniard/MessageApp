@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 import { Dashboard, Header, Main } from '../'
 
@@ -12,18 +13,34 @@ const StyledDiv = styled.div`
   color: ${props => props.theme.primaryTextBtn};
 `
 
-const App = () => (
-  <StyledDiv className="container-fluid">
-    <div className="row">
-      <div className="col-sm-2 p-0">
-        <Dashboard />
-      </div>
-      <div className="col-sm-10">
-        <Header />
-        <Main />
-      </div>
-    </div>
-  </StyledDiv>
-)
+class App extends Component {
+  componentDidMount = () => {
+    this.props.fetchMessages()
+    this.props.fetchBalance()
+  }
+
+  render() {
+    const { balance } = this.props
+    return (
+      <StyledDiv className="container-fluid">
+        <div className="row">
+          <div className="col-sm-1 p-0">
+            <Dashboard />
+          </div>
+          <div className="col-sm-11">
+            <Header balance={balance} />
+            <Main />
+          </div>
+        </div>
+      </StyledDiv>
+    )
+  }
+}
+
+App.propTypes = {
+  fetchBalance: PropTypes.func.isRequired,
+  fetchMessages: PropTypes.func.isRequired,
+  balance: PropTypes.number
+}
 
 export default App

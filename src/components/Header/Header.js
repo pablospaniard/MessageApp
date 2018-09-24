@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 import { Button, NavItem } from '../UI'
 
@@ -48,12 +49,16 @@ const Header = props => (
     <StyledTopUP className="col-sm-2">
       <div>
         <StyledText>balance</StyledText>
-        <p style={{ color: '#ff756c' }}>€ 5.00</p>
+        <p style={{ color: '#ff756c' }}>€ {props.balance}</p>
       </div>
       <Button text={'top up'} danger />
     </StyledTopUP>
-    <div className="col-sm-2">Sign In</div>
+    <div className="col-sm-2">Account</div>
   </StyledOutter>
 )
+
+Header.propTypes = {
+  balance: PropTypes.number
+}
 
 export default Header

@@ -47,48 +47,7 @@ const Dashboard = () => {
           style={{ height: '100%' }}
         />
       </StyledImg>
-      <StyledMenu>
-        <StyledInner>
-          <ul>
-            <StyledLi>
-              <i className="fas fa-comment" />
-              <StyledText>SMS</StyledText>
-            </StyledLi>
-            <StyledLi>
-              <i className="fas fa-phone" />
-              <StyledText>Voice</StyledText>
-            </StyledLi>
-            <StyledLi>
-              <i className="fas fa-comments" />
-              <StyledText>Chat</StyledText>
-            </StyledLi>
-          </ul>
-        </StyledInner>
-        <StyledInner>
-          <ul>
-            <StyledLi>
-              <i className="fas fa-plug" />
-              <StyledText>Applications</StyledText>
-            </StyledLi>
-            <StyledLi>
-              <i className="fas fa-code" />
-              <StyledText>Developers</StyledText>
-            </StyledLi>
-            <StyledLi>
-              <i className="fas fa-compass" />
-              <StyledText>Setup Guide</StyledText>
-            </StyledLi>
-            <StyledLi>
-              <i className="fas fa-question-circle" />
-              <StyledText>Help</StyledText>
-            </StyledLi>
-            <StyledLi style={{ marginTop: '20px' }}>
-              <i className="fas fa-user-circle fa-2x" />{' '}
-              <StyledText>Account</StyledText>
-            </StyledLi>
-          </ul>
-        </StyledInner>
-      </StyledMenu>
+      <StyledMenu />
     </StyledOutter>
   )
 }

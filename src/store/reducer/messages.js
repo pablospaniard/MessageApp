@@ -1,4 +1,4 @@
-import * as constants from './constants'
+import * as constants from '../constants'
 
 const initialStore = {
   err: null,
@@ -6,7 +6,7 @@ const initialStore = {
   messages: []
 }
 
-const reducer = (state = initialStore, action) => {
+const messageReducer = (state = initialStore, action) => {
   switch (action.type) {
     case constants.MESSAGES_FETCH_STARTED:
       return { ...state, loading: true }
@@ -22,4 +22,4 @@ const reducer = (state = initialStore, action) => {
   }
 }
 
-export default reducer
+export default messageReducer

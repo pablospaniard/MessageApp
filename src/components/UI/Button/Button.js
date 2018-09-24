@@ -11,10 +11,10 @@ const StyledButton = styled.button`
     return props.width ? props.width : 'fit-content'
   }}
   background-color: ${props =>
+    (props.disabled && props.theme.disabledBtn) ||
     (props.primary && props.theme.primaryBtn) ||
     (props.danger && props.theme.dangerBtn) ||
-    (props.actionBtn && props.theme.actionBtn) ||
-    (props.disabled && props.theme.disabledBtn)};
+    (props.actionBtn && props.theme.actionBtn)} ;
   border: none;
   border-radius: 4px;
   font-size: 0.9rem;
@@ -27,15 +27,16 @@ const StyledButton = styled.button`
   &:hover,
   &:after {
     background-color: ${props =>
+      (props.disabled && props.theme.disabledBtn) ||
       (props.primary && props.theme.primaryHoverBtn) ||
       (props.danger && props.theme.secondaryHoverBtn) ||
-      (props.actionBtn && props.theme.actionHoverBtn) ||
-      (props.disabled && props.theme.disabledBtn)};
+      (props.actionBtn && props.theme.actionHoverBtn)};
     color: ${props =>
       (props.primary && props.theme.secondaryText) ||
-      (props.danger && props.theme.dangerBtn) ||
-      (props.disabled && props.theme.primaryTextBtn)};
-      cursor: pointer;
+      (props.danger && props.theme.dangerBtn)};
+      cursor: ${props => {
+        return props.disabled ? 'not-allowed' : 'pointer'
+      }};
   }
   &:focus {
     outline: none;
@@ -43,7 +44,11 @@ const StyledButton = styled.button`
 `
 
 const Button = props => {
-  return <StyledButton {...props}>{props.text}</StyledButton>
+  return (
+    <StyledButton {...props} onClick={props.onClick}>
+      {props.text}
+    </StyledButton>
+  )
 }
 
 Button.propTypes = {
