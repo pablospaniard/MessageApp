@@ -2,16 +2,9 @@ import React, { Fragment } from 'react'
 import { Table } from 'reactstrap'
 import PropTypes from 'prop-types'
 import moment from 'moment'
-import styled from 'styled-components'
 
 import { NoMessages } from '../../Messages'
-import { Spinner } from '../../UI'
-
-const StyledTd = styled.td`
-  text-overflow: ellipsis;
-  max-width: 200px;
-  overflow: hidden;
-`
+import { Spinner, StyledTd } from '../../UI'
 
 const All = props => {
   const { messages, loading } = props

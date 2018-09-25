@@ -65,7 +65,7 @@ class Send extends Component {
 
   onSendButtonHandler = (e, originator, recipient, message) => {
     e.preventDefault()
-    //this.props.sendMessage(originator, recipient, message)
+    this.props.sendMessage(originator, recipient, message)
     this.setState({
       alert: true,
       originator: '',

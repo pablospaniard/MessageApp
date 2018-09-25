@@ -29,7 +29,6 @@
     "precommit": "lint-staged",
     "prepush": "yarn test:ci"
   },
-  "proxy": "http://localhost:3001",
   "lint-staged": {
     "*.(js|jsx)": [
       "prettier --write",
