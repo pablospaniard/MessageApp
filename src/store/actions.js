@@ -98,29 +98,3 @@ export const sendMessage = (originator, recipient, message) => dispatch => {
     dispatch(sendMessageSuccess(response))
   })
 }
-
-const receiveMessageStart = () => ({
-  type: constants.MESSAGE_RECEIVE_STARTED
-})
-
-const receiveMessagesSuccess = data => ({
-  type: constants.MESSAGE_RECEIVE_SUCCESS,
-  payload: data
-})
-
-const receiveMessagesFail = err => {
-  return {
-    type: constants.MESSAGE_RECEIVE_FAIL,
-    payload: err
-  }
-}
-
-export const receiveMessage = () => dispatch => {
-  dispatch(receiveMessageStart())
-  axios
-    .get('/webhook')
-    .then(res => {
-      return dispatch(receiveMessagesSuccess(res.data))
-    })
-    .catch(err => dispatch(receiveMessagesFail(err)))
-}
