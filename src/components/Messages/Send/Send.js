@@ -3,7 +3,7 @@ import { Form, FormGroup, Label, Input } from 'reactstrap'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { Button } from '../../UI'
+import { Button, Alert } from '../../UI'
 
 const StyledText = styled.p`
   text-transform: uppercase;
@@ -29,19 +29,33 @@ const StyledSpan = styled.span`
   margin-left: 50px;
 `
 
+const StyledInput = styled(Input)`
+  ::placeholder {
+    color: ${props => props.theme.placeholderText};
+  }
+`
+
+const StyledWarning = styled.span`
+  color: #dc3545;
+  font-size: 0.6rem;
+  padding-left: 10px;
+`
+
 class Send extends Component {
   state = {
     charsLeft: 1000,
     originator: '',
     recipient: '',
-    message: ''
+    message: '',
+    alert: false
   }
 
   handleChangeText = e => {
     const input = e.target.value
     this.setState({
       charsLeft: 1000 - input.length,
-      message: input
+      message: input,
+      alert: false
     })
   }
 
@@ -51,19 +65,25 @@ class Send extends Component {
 
   onSendButtonHandler = (e, originator, recipient, message) => {
     e.preventDefault()
-    this.props.sendMessage(originator, recipient, message)
-    alert('Pop up')
+    //this.props.sendMessage(originator, recipient, message)
+    this.setState({
+      alert: true,
+      originator: '',
+      recipient: '',
+      message: ''
+    })
   }
 
   render() {
-    const { originator, recipient, message } = this.state
+    const { originator, recipient, message, alert } = this.state
     return (
       <Fragment>
-        <div className="row">
+        <div className="row" data-testid="send">
           <StyledText className="col-sm-12">Send SMS</StyledText>
           <StyledSpan>*All fields must be filled</StyledSpan>
         </div>
         <StyledHr />
+        {alert ? <Alert /> : null}
         <Form
           onSubmit={() => this.onSubmitHandler(originator, recipient, message)}
         >
@@ -71,18 +91,22 @@ class Send extends Component {
             <div className="col-sm-4">
               <FormGroup>
                 <Label for="phoneNumber">Phone:</Label>
-                <Input
+                <StyledInput
                   type="text"
                   name="recipient"
                   id="phoneNumber"
-                  placeholder="ex: +0123456789"
+                  invalid={isNaN(recipient) ? true : false}
+                  placeholder="ex: 0123456789"
                   value={recipient}
                   onChange={this.handleChange}
                 />
+                {isNaN(recipient) ? (
+                  <StyledWarning>* should be number</StyledWarning>
+                ) : null}
               </FormGroup>
               <FormGroup>
                 <Label for="originator">Originator:</Label>
-                <Input
+                <StyledInput
                   type="text"
                   name="originator"
                   id="originator"
@@ -95,7 +119,7 @@ class Send extends Component {
             <div className="col-sm-8">
               <FormGroup>
                 <Label for="message">Message:</Label>
-                <Input
+                <StyledInput
                   type="textarea"
                   name="message"
                   id="message"
@@ -134,7 +158,7 @@ class Send extends Component {
 }
 
 Send.propTypes = {
-  sendMessage: PropTypes.func.isRequired,
+  sendMessage: PropTypes.func,
   history: PropTypes.object
 }
 

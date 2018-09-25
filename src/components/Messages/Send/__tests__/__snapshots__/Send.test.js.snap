@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Send_snaphot_1 1`] = `
+<div
+  class="row"
+  data-testid="send"
+>
+  <p
+    class="col-sm-12 sc-EHOje bZPtdN"
+  >
+    Send SMS
+  </p>
+  <span
+    class="sc-htoDjs hytfNu"
+  >
+    *All fields must be filled
+  </span>
+</div>
+`;

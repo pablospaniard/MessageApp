@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main_snapshot_1 1`] = `
+<div
+  class="sc-jTzLTM enCwFM"
+>
+  <table
+    class="table"
+  >
+    <thead>
+      <tr>
+        <th>
+          Type
+        </th>
+        <th>
+          Recipient
+        </th>
+        <th>
+          Originator
+        </th>
+        <th>
+          Message
+        </th>
+        <th>
+          Status
+        </th>
+        <th>
+          Date
+        </th>
+        <th />
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td
+          class="sc-EHOje bdudsa"
+        >
+          Outgoing
+        </td>
+        <td
+          class="sc-EHOje bdudsa"
+        >
+          31612345678
+        </td>
+        <td
+          class="sc-EHOje bdudsa"
+        >
+          MessageBird
+        </td>
+        <td
+          class="sc-EHOje bdudsa"
+        >
+          The message to be sent
+        </td>
+        <td
+          class="sc-EHOje bdudsa"
+        >
+          sent
+        </td>
+        <td
+          class="sc-EHOje bdudsa"
+        >
+          29-04-16 11:42
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

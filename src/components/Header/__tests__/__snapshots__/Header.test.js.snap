@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header_snapshot_1 1`] = `
+<div
+  class="row sc-EHOje fZzPgm"
+>
+  <div
+    class="col-sm-2 d-none d-sm-block sc-htoDjs hQxKPK"
+  >
+    Messages
+  </div>
+  <div
+    class="col-sm-6 col-8"
+  >
+    <a
+      class="sc-htpNat dSZjDA active"
+      aria-current="page"
+      href="/"
+    >
+      <button
+        class="sc-bdVaJa gjOhON"
+      >
+        all messages
+      </button>
+    </a>
+    <a
+      class="sc-htpNat dSZjDA"
+      href="/received"
+    >
+      <button
+        class="sc-bdVaJa gjOhON"
+      >
+        received
+      </button>
+    </a>
+    <a
+      class="sc-htpNat dSZjDA"
+      href="/sent"
+    >
+      <button
+        class="sc-bdVaJa gjOhON"
+      >
+        sent
+      </button>
+    </a>
+    <a
+      class="sc-htpNat dSZjDA"
+      href="/send-sms"
+    >
+      <button
+        class="sc-bdVaJa gjOhON"
+      >
+        send SMS
+      </button>
+    </a>
+  </div>
+  <div
+    class="col-2 sc-bZQynM kcafyz"
+  >
+    <div>
+      <p
+        class="sc-gzVnrw cQoCgl"
+      >
+        balance
+      </p>
+      <p
+        style="color: rgb(255, 117, 108);"
+      >
+        € 
+      </p>
+    </div>
+    <button
+      class="sc-bdVaJa gjOhON"
+    >
+      top up
+    </button>
+  </div>
+  <div
+    class="col-sm-22 d-none d-sm-block"
+  >
+    Account
+  </div>
+</div>
+`;

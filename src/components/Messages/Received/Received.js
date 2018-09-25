@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { Table } from 'reactstrap'
 import PropTypes from 'prop-types'
-import * as moment from 'moment'
+import moment from 'moment'
 import styled from 'styled-components'
 
 import { NoMessages } from '../../Messages'
@@ -25,7 +25,7 @@ const Received = props => {
 
   if (!loading) {
     content = (
-      <Table>
+      <Table data-testid="received">
         <thead>
           <tr>
             <th>Type</th>

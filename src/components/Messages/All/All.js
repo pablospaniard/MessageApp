@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { Table } from 'reactstrap'
 import PropTypes from 'prop-types'
-import * as moment from 'moment'
+import moment from 'moment'
 import styled from 'styled-components'
 
 import { NoMessages } from '../../Messages'
@@ -19,11 +19,11 @@ const All = props => {
 
   let content = <Spinner />
 
-  if (!loading && messages.items.length === 0) {
+  if (!loading && messages.items <= 0) {
     content = <NoMessages />
   }
 
-  if (!loading) {
+  if (!loading && messages.items.length > 0) {
     content = (
       <Table>
         <thead>
