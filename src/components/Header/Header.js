@@ -27,12 +27,16 @@ const StyledText = styled.p`
 const StyledTitle = styled.div`
   font-size: 1.5rem;
   color: ${props => props.theme.greyText};
+
+  @media (max-width: 1024px) {
+    font-size: 1.2rem;
+  }
 `
 
 const Header = props => (
   <StyledOutter className="row">
-    <StyledTitle className="col-sm-2">Messages</StyledTitle>
-    <div className="col-sm-6">
+    <StyledTitle className="col-sm-2 d-none d-sm-block">Messages</StyledTitle>
+    <div className="col-sm-6 col-8">
       <NavItem exact to={'/'}>
         <Button text={'all messages'} primary />
       </NavItem>
@@ -46,14 +50,14 @@ const Header = props => (
         <Button text={'send SMS'} primary />
       </NavItem>
     </div>
-    <StyledTopUP className="col-sm-2">
+    <StyledTopUP className="col-2">
       <div>
         <StyledText>balance</StyledText>
         <p style={{ color: '#ff756c' }}>€ {props.balance}</p>
       </div>
       <Button text={'top up'} danger />
     </StyledTopUP>
-    <div className="col-sm-2">Account</div>
+    <div className="col-sm-22 d-none d-sm-block">Account</div>
   </StyledOutter>
 )
 

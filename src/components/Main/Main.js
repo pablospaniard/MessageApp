@@ -12,6 +12,7 @@ const StyledOutter = styled.div`
   margin: 20px;
   height: 90vh;
   border: 1px solid ${props => props.theme.borderMain};
+  overflow: scroll;
 `
 
 class Main extends Component {

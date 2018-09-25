@@ -17,6 +17,7 @@ const StyledButtonRow = styled.div`
   justify-content: flex-end;
   padding-right: 45px;
   margin-top: 20px;
+  margin-bottom: 40px;
 `
 const StyledHr = styled.hr`
   margin: 0;

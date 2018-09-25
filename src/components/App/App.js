@@ -11,6 +11,10 @@ const StyledDiv = styled.div`
   font-size: 16px;
   min-height: 100vh;
   color: ${props => props.theme.primaryTextBtn};
+
+  @media (max-width: 1024px) {
+    font-size: 12px;
+  }
 `
 
 class App extends Component {
@@ -35,10 +39,10 @@ class App extends Component {
     return (
       <StyledDiv className="container-fluid">
         <div className="row">
-          <div className="col-sm-1 p-0">
+          <div className="col-sm-1 p-0 d-none d-sm-block">
             <Dashboard />
           </div>
-          <div className="col-sm-11">
+          <div className="col-sm-11 col-12">
             <Header balance={balance} />
             <Main messages={messages} loading={loading} />
           </div>

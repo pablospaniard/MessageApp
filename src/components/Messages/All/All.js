@@ -2,9 +2,16 @@ import React, { Fragment } from 'react'
 import { Table } from 'reactstrap'
 import PropTypes from 'prop-types'
 import * as moment from 'moment'
+import styled from 'styled-components'
 
 import { NoMessages } from '../../Messages'
 import { Spinner } from '../../UI'
+
+const StyledTd = styled.td`
+  text-overflow: ellipsis;
+  max-width: 200px;
+  overflow: hidden;
+`
 
 const All = props => {
   const { messages, loading } = props
@@ -35,12 +42,16 @@ const All = props => {
             const recipient = item.recipients.items[0]
             return (
               <tr key={item.id}>
-                <td>{item.direction === 'mt' ? 'Outgoing' : 'Incoming'}</td>
-                <td>{recipient.recipient}</td>
-                <td>{item.originator}</td>
-                <td>{item.body}</td>
-                <td>{recipient.status}</td>
-                <td>{moment(item.createdDatetime).format('kk:mm')}</td>
+                <StyledTd>
+                  {item.direction === 'mt' ? 'Outgoing' : 'Incoming'}
+                </StyledTd>
+                <StyledTd>{recipient.recipient}</StyledTd>
+                <StyledTd>{item.originator}</StyledTd>
+                <StyledTd>{item.body}</StyledTd>
+                <StyledTd>{recipient.status}</StyledTd>
+                <StyledTd>
+                  {moment(item.createdDatetime).format('DD-MM-YY kk:mm')}
+                </StyledTd>
               </tr>
             )
           })}
