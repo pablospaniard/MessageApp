@@ -6,12 +6,12 @@ exports[`Send_snaphot_1 1`] = `
   data-testid="send"
 >
   <p
-    class="col-sm-12 sc-EHOje bZPtdN"
+    class="col-sm-12 sc-bZQynM fIQvGs"
   >
     Send SMS
   </p>
   <span
-    class="sc-htoDjs hytfNu"
+    class="sc-dnqmqq bfqxFG"
   >
     *All fields must be filled
   </span>
