@@ -27,7 +27,6 @@ const Received = props => {
             <th>Message</th>
             <th>Status</th>
             <th>Date</th>
-            <th />
           </tr>
         </thead>
         <tbody>

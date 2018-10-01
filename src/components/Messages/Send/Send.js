@@ -143,7 +143,10 @@ class Send extends Component {
                 text="send"
                 actionBtn
                 disabled={
-                  originator === '' || recipient === '' || message === ''
+                  originator === '' ||
+                  recipient === '' ||
+                  message === '' ||
+                  isNaN(recipient)
                 }
                 onClick={e =>
                   this.onSendButtonHandler(e, originator, recipient, message)
