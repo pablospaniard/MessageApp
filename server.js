@@ -4,7 +4,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express().use(bodyParser.json())
 
-app.post((req, res) => {
+app.post('/webhook', (req, res) => {
   const data = {
     responses: [
       {
@@ -17,4 +17,4 @@ app.post((req, res) => {
   res.json(data)
 })
 
-app.listen(3001, () => console.log('Webhook is listening'))
+app.listen(3001, () => console.log('Webhook is listening on 3001'))
