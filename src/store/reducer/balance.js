@@ -11,9 +11,9 @@ const balanceReducer = (state = initialStore, action) => {
     case constants.BALANCE_FETCH_STARTED:
       return { ...state, loading: true }
     case constants.BALANCE_FETCH_SUCCESS:
-      return { ...state, balance: action.payload }
+      return { ...state, balance: action.payload, loading: false }
     case constants.BALANCE_FETCH_FAIL:
-      return { ...state, err: action.payload }
+      return { ...state, err: action.payload, loading: false }
     default:
       return state
   }

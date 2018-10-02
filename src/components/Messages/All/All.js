@@ -12,7 +12,7 @@ const All = props => {
 
   let content = <Spinner />
 
-  if (!loading && messages.items <= 0) {
+  if (!loading && messages.items.length <= 0) {
     content = <NoMessages />
   }
 

@@ -12,11 +12,11 @@ const Sent = props => {
 
   let content = <Spinner />
 
-  if (!loading && messages.items.length === 0) {
+  if (!loading && messages.items.length <= 0) {
     content = <NoMessages />
   }
 
-  if (!loading) {
+  if (!loading && messages.items.length > 0) {
     content = (
       <Table data-testid="sent">
         <thead>
